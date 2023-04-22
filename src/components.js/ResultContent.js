@@ -5,11 +5,11 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Loading from './Loading';
 import WelcomeGif from '../assets/images/welcome.gif'
 import SearchingGif from '../assets/images/searching.gif'
+import Map from './Map';
 const ResultContent = () => {
 
     const [state, dispatch] = useStore()
     const { localDarkmode, result_nation, page_loading } = state
-
 
 
     const RenderResult = () => {
@@ -25,11 +25,15 @@ const ResultContent = () => {
         const subregion = nation.subregion
         const currency = nation.currencies
         const tld = nation.tld
-        const population = nation.population
+        const population = nation.population.toLocaleString('de-DE');
         const timezones = nation.timezones
         const startOfWeek = nation.startOfWeek
         const idd = nation.idd
-
+        const map = nation.latlng
+        const independent = nation.independent
+        const status = nation.status
+        const area = nation.area.toLocaleString('de-DE');
+        const continents = nation.continents
         const color_theme = localDarkmode === DARK ? "text-slate-100" : "text-slate-950"
 
         const RenderInfo = ({ list }) => {
@@ -72,7 +76,7 @@ const ResultContent = () => {
 
             if (sub.length > 1) {
                 return (
-                    <select>
+                    <select className={`${localDarkmode === LIGHT ? "bg-zinc-100" : "bg-zinc-800"}`}>
                         {
                             Object.keys(sub).map((key, index) =>
                             (
@@ -125,7 +129,8 @@ const ResultContent = () => {
         }
 
         return (
-            <>
+            <div className={`w-full flex flex-col xl:flex-row gap-2`}>
+            <div className='w-full flex flex-col gap-2 '>
                 <div className={`w-full h-fit flex flex-row gap-2 p-2 bg-opacity-80 md:bg-opacity-100 rounded-md relative ${localDarkmode === DARK ? "out-box-effect bg-zinc-800" : "bg-slate-50 in-box-effect"}`}>
 
                     <LazyLoadImage
@@ -162,16 +167,26 @@ const ResultContent = () => {
                             <p className={`${color_theme} whitespace-normal`}>Languages: <RenderLang langs={languages} /></p>
                             <p className={`text-md ${color_theme}`}>Car side: <span className='font-bold'>{car.side.charAt(0).toUpperCase() + car.side.slice(1)}</span></p>
                             <p className={`text-md ${color_theme}`}>Start of week: <span className='font-bold'>{startOfWeek.charAt(0).toUpperCase() + startOfWeek.slice(1)}</span></p>
+                            <p className={`text-md ${color_theme}`}>Independend: <span className='font-bold'>{independent === true ? "Yes" : "Not yet"}</span></p>
+                            <p className={`text-md ${color_theme}`}>Status: <span className='font-bold'>{status === "officially-assigned" ? "Official Assigned" : "Unknown"}</span></p>
+                            <p className={`text-md ${color_theme}`}>Area: <span className='font-bold'>{area} km2</span></p>
+                            <p className={`text-md ${color_theme}`}>Continents: <RenderInfo list={continents} /></p>
+                        
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
+            <div className='w-full h-fit'>
+                    <Map lat={map[0]} lng={map[1]} />
+                </div>
+                </div>
+
         )
     }
 
 
     return (
-        <div className={`w-full lg:max-w-3xl h-full flex flex-col p-3 gap-3 `}>
+        <div className={`w-full h-full flex flex-col p-3 gap-3`}>
             {
                 page_loading === false ?
                     result_nation?.length > 0

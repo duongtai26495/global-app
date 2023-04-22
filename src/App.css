@@ -40,3 +40,8 @@
     box-shadow:  4px 4px 8px #1d1d1d,
                  -4px -4px 8px #2b2b2b
 }
+
+.scroll-to-top {
+    left: 85%;
+    bottom:3rem;
+}
