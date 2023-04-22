@@ -17,7 +17,8 @@ const Map = ({ lat,lng }) => {
       };
 
     return (
-        <div className={`w-full h-fit rouned-md overflow-hidden p-2 ${localDarkmode == DARK ? "dark-box-effect" : "light-box-effect " }`}>
+        <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode == DARK ? "out-box-effect" : "in-box-effect " }`}>
+            <p className={`w-full text-md font-bold mb-2 ${localDarkmode == DARK ? "text-neutral-100" : "text-neutral-900 " }`}>Position on map:</p>
             <div style={{ height: '500px', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyBGCcrTDkzG-S5r21z8wjSlTPFdzhL5cZ4" }}

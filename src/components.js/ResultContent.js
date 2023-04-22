@@ -145,7 +145,7 @@ const ResultContent = () => {
 
                 <div className={`w-full flex flex-col p-2 gap-2 bg-opacity-80 md:bg-opacity-100 rounded-md ${localDarkmode === DARK ? "out-box-effect bg-zinc-800" : "bg-slate-50 in-box-effect"}`}>
                     <RenderName />
-                    <div className='w-full border rounded p-1'>
+                    <div className='w-full border border-zinc-500 rounded p-1'>
                         <p className={`text-md italic mb-2 ${color_theme}`}>General:</p>
 
                         <div className={`w-full flex flex-col justify-start gap-2 p-2`}>
@@ -157,7 +157,7 @@ const ResultContent = () => {
 
                         </div>
                     </div>
-                    <div className='w-full border rounded p-1'>
+                    <div className='w-full border border-zinc-500 rounded p-1'>
                         <p className={`text-md italic mb-2 ${color_theme}`}>Other information:</p>
 
                         <div className={`w-full flex flex-col justify-start gap-2 p-2 `}>
