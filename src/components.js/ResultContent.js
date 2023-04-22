@@ -3,7 +3,7 @@ import { useStore } from '../store'
 import { DARK } from '../config/constants'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Loading from './Loading';
-import LoadingGif from '../assets/images/loading.gif'
+import WelcomeGif from '../assets/images/welcome.gif'
 import SearchingGif from '../assets/images/waiting.gif'
 const ResultContent = () => {
 
@@ -67,9 +67,8 @@ const ResultContent = () => {
         }
 
         return (
-            <div className={`w-full lg:max-w-3xl h-full flex flex-col p-3 `}>
-
-                <div className={`w-full lg:h-60 flex flex-row gap-2 p-2 rounded-md relative ${localDarkmode === DARK ? "dark-box-effect" : "bg-slate-50 light-box-effect"}`}>
+            <>
+                <div className={`w-full h-fit flex flex-row gap-2 p-2 bg-opacity-80 md:bg-opacity-100 rounded-md relative ${localDarkmode === DARK ? "out-box-effect bg-zinc-800" : "bg-slate-50 in-box-effect"}`}>
                     <img
                         className={`w-1/2 lg:w-1/3 lg:max-w-4xl object-contain`}
                         src={flag.svg}
@@ -81,7 +80,7 @@ const ResultContent = () => {
                         className='w-fit h-24 lg:max-h-40 lg:h-full lg:max-w-4xl m-auto object-contain' />
                 </div>
 
-                <div className={`w-full flex flex-col p-2 gap-2`}>
+                <div className={`w-full flex flex-col p-2 gap-2 bg-opacity-80 md:bg-opacity-100 rounded-md ${localDarkmode === DARK ? "out-box-effect bg-zinc-800" : "bg-slate-50 in-box-effect"}`}>
 
                     <RenderName />
                     <div className={`w-full flex flex-col justify-start gap-2`}>
@@ -95,20 +94,24 @@ const ResultContent = () => {
                     <RenderCurrency />
 
                 </div>
-            </div>
+            </>
         )
     }
 
 
     return (
-        page_loading === false ?
-            result_nation?.length > 0
-                ?
-                <RenderResult />
-                :
-                <Loading gif={LoadingGif} />
-            :
-            <Loading gif={SearchingGif} />
+        <div className={`w-full lg:max-w-3xl h-full flex flex-col p-3 gap-3 `}>
+            {
+                page_loading === false ?
+                    result_nation?.length > 0
+                        ?
+                        <RenderResult />
+                        :
+                        <Loading gif={WelcomeGif} />
+                    :
+                    <Loading gif={SearchingGif} />
+            }
+        </div>
     )
 }
 

@@ -1,11 +1,11 @@
 .light-box-effect {
-    box-shadow:  8px 8px 15px #e4e4e4,
-    -8px -8px 15px #ffffff;
+    box-shadow: 8px 8px 15px #e4e4e4,
+        -8px -8px 15px #ffffff;
 }
 
 .dark-box-effect {
-    box-shadow:  9px 9px 18px #181818,
-    -9px -9px 18px #202020;
+    box-shadow: 9px 9px 18px #181818,
+        -9px -9px 18px #202020;
 }
 
 .light-input-effect {
@@ -13,10 +13,11 @@
 }
 
 .in-box-effect {
-    box-shadow:  15px 15px 41px #d5d5d5,
-    -15px -15px 41px #ffffff;
+    box-shadow:  5px 5px 10px #eeeeee,
+    -5px -5px 10px #ffffff;
 }
-
 .out-box-effect {
-
+    box-shadow:  5px 5px 10px #1b1b1b,
+             -5px -5px 10px #1d1d1d;
 }
+
