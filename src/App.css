@@ -1,0 +1,22 @@
+.light-box-effect {
+    box-shadow:  8px 8px 15px #e4e4e4,
+    -8px -8px 15px #ffffff;
+}
+
+.dark-box-effect {
+    box-shadow:  9px 9px 18px #181818,
+    -9px -9px 18px #202020;
+}
+
+.light-input-effect {
+    background: #ffffff;
+}
+
+.in-box-effect {
+    box-shadow:  15px 15px 41px #d5d5d5,
+    -15px -15px 41px #ffffff;
+}
+
+.out-box-effect {
+
+}
