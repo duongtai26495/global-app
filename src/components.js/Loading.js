@@ -8,9 +8,9 @@ const Loading = ({gif, text}) => {
     const {result_nation, localDarkmode} = state
 
     return (
-        <div className='w-full'>
+        <div className='w-full lg:1/2'>
         <p className={`w-full text-center m-auto font-bold text-xl ${localDarkmode == DARK ? "text-slate-50" : "text-zinc-900" }`}>{result_nation !== null ? "Welcome to Nationin4": "Not found !!!"}</p>
-            <img className='m-auto' src={result_nation === null ? Gif404 : gif} />
+            <img className='m-auto w-2/3 lg:w-1/2 my-5' src={result_nation === null ? Gif404 : gif} />
         </div>
     )
 }

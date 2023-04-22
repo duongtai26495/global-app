@@ -1,23 +1,42 @@
 .light-box-effect {
-    box-shadow: 8px 8px 15px #e4e4e4,
-        -8px -8px 15px #ffffff;
+    background: linear-gradient(145deg, #e1e1e1, #ffffff);
+    box-shadow: 4px 4px 8px #d7d7d7,
+        -4px -4px 8px #ffffff;
+        border: white solid 1px;
+        border-radius: 5px;
 }
 
 .dark-box-effect {
-    box-shadow: 9px 9px 18px #181818,
-        -9px -9px 18px #202020;
+    background: linear-gradient(145deg, #202020, #272727);
+    box-shadow:  2px 2px 3px #1e1e1e,
+                 -2px -2px 3px #2a2a2a;
+    border-radius: 5px;
+    border: rgb(59, 59, 59) solid 1px;
 }
 
 .light-input-effect {
-    background: #ffffff;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 4px 4px 5px #d1d1d1,
+        -4px -4px 5px #ffffff;  
+        border: white solid 1px;
+        border-radius: 5px;
+}
+.dark-input-effect {
+    background: linear-gradient(145deg, #202020, #272727);
+    box-shadow:  2px 2px 3px #1e1e1e,
+                 -2px -2px 3px #2a2a2a;
+    border-radius: 5px;
+    border: rgb(59, 59, 59) solid 1px;
 }
 
 .in-box-effect {
-    box-shadow:  5px 5px 10px #eeeeee,
-    -5px -5px 10px #ffffff;
-}
-.out-box-effect {
-    box-shadow:  5px 5px 10px #1b1b1b,
-             -5px -5px 10px #1d1d1d;
+    background: #fafafa;
+    box-shadow:  3px 3px 5px #e4e4e4,
+                 -3px -3px 5px #ffffff;
 }
 
+.out-box-effect {
+    background: #242424;
+    box-shadow:  4px 4px 8px #1d1d1d,
+                 -4px -4px 8px #2b2b2b
+}
