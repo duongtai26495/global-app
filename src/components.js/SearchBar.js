@@ -54,6 +54,7 @@ const SearchBar = () => {
         <div className={`bg-transparent w-full`}>
             <div className='w-full flex flex-row items-center relative gap-2'>
                 <input value={keyword}
+                autoFocus={true}
                 onKeyDown={handleEnterPress}
                 onChange={(e) => { handleOnChange(e.target.value) }} 
                 className={`w-full flex-1 bg-transparent h-10 px-2 ${localDarkmode == DARK ? "text-white dark-input-effect" : "text-black light-input-effect"}`} placeholder='Vietnam, vie, etc' />

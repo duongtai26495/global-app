@@ -1,7 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
 import { useStore } from '../store';
-import { DARK } from '../config/constants';
+import { DARK, GOOGLE_API } from '../config/constants';
 
 const Map = ({ lat,lng }) => {
     
@@ -21,7 +21,7 @@ const Map = ({ lat,lng }) => {
             <p className={`w-full text-md font-bold mb-2 ${localDarkmode == DARK ? "text-neutral-100" : "text-neutral-900 " }`}>Position on map:</p>
             <div style={{ height: '500px', width: '100%' }}>
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyBGCcrTDkzG-S5r21z8wjSlTPFdzhL5cZ4" }}
+                    bootstrapURLKeys={{ key: GOOGLE_API }}
                     defaultCenter={defaultProps.center}
                     defaultZoom={defaultProps.zoom}
                 >
