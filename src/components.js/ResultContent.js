@@ -23,8 +23,14 @@ const ResultContent = () => {
         const cap = nation.capital
         const color_theme = localDarkmode === DARK ? "text-slate-100" : "text-slate-950"
         const region = nation.region
+        const subregion = nation.subregion
         const currency = nation.currencies
         const tld = nation.tld
+        const population = nation.population
+        const timezones = nation.timezones
+        const startOfWeek =  nation.startOfWeek
+        const idd = nation.idd
+
 
         const RenderInfo = ({ list, topkey }) => {
             return (
@@ -36,6 +42,20 @@ const ResultContent = () => {
                         ))
                     }
                 </p>
+            )
+        }
+
+        const RenderIdd = () => {
+            const root = idd.root;
+            const sub = idd.suffixes
+            return (
+                Object.keys(sub).map((key, index) =>
+                (
+                    <div key={index} className={`w-full flex flex-col gap-2`}>
+                        <p className={`${color_theme}`}>Idd :<span className={` m-auto md:m-0 font-bold ${color_theme}`}>{root}{sub[key]}</span></p>
+                    </div>
+                )
+                )
             )
         }
 
@@ -88,11 +108,15 @@ const ResultContent = () => {
                         <RenderInfo list={languages} topkey={"Languages"} />
                         <RenderInfo list={tld} topkey={"Tld of nation"} />
                     </div>
-                    <p className={`text-md ${color_theme}`}>Offical: <span className='font-bold'>{name.official}</span></p>
-                    <p className={`text-md ${color_theme}`}>Car side: <span className='font-bold'>{car.side}</span></p>
-                    <p className={`text-md ${color_theme}`}>Region: <span className='font-bold'>{region}</span></p>
+                    <RenderIdd />
                     <RenderCurrency />
-
+                    <p className={`text-md ${color_theme}`}>Offical: <span className='font-bold'>{name.official}</span></p>
+                    <p className={`text-md ${color_theme}`}>Car side: <span className='font-bold'>{car.side.charAt(0).toUpperCase() +  car.side.slice(1)}</span></p>
+                    <p className={`text-md ${color_theme}`}>Region: <span className='font-bold'>{region} - {subregion}</span></p>
+                    <p className={`text-md ${color_theme}`}>Population: <span className='font-bold'>{population}</span></p>
+                    <RenderInfo list={timezones} topkey={"Timezones"} />
+                    
+                    <p className={`text-md ${color_theme}`}>Start of week: <span className='font-bold'>{startOfWeek.charAt(0).toUpperCase() +  startOfWeek.slice(1)}</span></p>
                 </div>
             </>
         )

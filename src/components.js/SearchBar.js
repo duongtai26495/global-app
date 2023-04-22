@@ -25,6 +25,10 @@ const SearchBar = () => {
                 dispatch(updateResult(null))
             }
             dispatch(updateLoading(false))
+        }else{
+            setKeyword("")
+            dispatch(updateResult([]))
+            localStorage.removeItem(RESULT_NATION)
         }
     }
 
