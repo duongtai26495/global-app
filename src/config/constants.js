@@ -9,3 +9,5 @@ export const LOADING_STATE = "loading_state"
 export const UPDATE_LOADING = "update_loading"
 
 export const HOST = "https://restcountries.com/v3.1/"
+export const APP_NAME = "NationIn4"
+export const SLOGAN = "Explore our world"
