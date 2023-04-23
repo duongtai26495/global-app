@@ -2,9 +2,17 @@ import axios from "axios";
 import { HOST_COUNTRIES, HOST_PIXABAY, PIXABAY_API } from "./constants";
 
 
-const getDataByName = async (name) => {
+const getDataNation = async (keyword, type, fullText) => {
+  let url = HOST_COUNTRIES;
+  
+  switch(type){
+    case "name": url = HOST_COUNTRIES + type +"/"+ keyword + "?fullText="+ (fullText === true ? "true" : "false")
+    break
+    case "code": url = HOST_COUNTRIES + "alpha/" + keyword
+    break
+    case "capital" : url = HOST_COUNTRIES + type +"/"+keyword
+  }
 
-    let url = HOST_COUNTRIES + "name/" + name
 
     let config = {
       method: 'GET',
@@ -21,8 +29,8 @@ const getDataByName = async (name) => {
     });
 }
 
-const getImages = async (name) => {
-  let url = HOST_PIXABAY +"?key="+ PIXABAY_API + "&q=" + name + "&image_type=photo&order=popular&safesearch=true&pretty=true&per_page=20"
+const getImages = async (name, page) => {
+  let url = HOST_PIXABAY +"?key="+ PIXABAY_API + "&q=" + name + "&image_type=photo&order=popular&safesearch=true&pretty=true&per_page=10&page="+page
 
   let config = {
     method: 'GET',
@@ -41,4 +49,4 @@ const getImages = async (name) => {
 
 }
 
-export {getDataByName, getImages}
+export {getDataNation, getImages}

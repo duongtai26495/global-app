@@ -23,9 +23,9 @@ const App = () => {
   }, []);
   return (
 
-    <main className={`h-full relative min-h-screen ${localDarkmode == DARK ? "bg-zinc-800" : "bg-slate-100"}`} id='main'>
+    <main className={`h-full relative min-h-screen ${localDarkmode == DARK ? "bg-zinc-900" : "bg-slate-50"}`} id='main'>
+       <Header />
       <div className={`w-full lg:max-w-5xl m-auto `}>
-        <Header />
         <ResultContent />
       </div>
       <ScrollToTop />
