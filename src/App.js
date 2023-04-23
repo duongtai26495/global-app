@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import Header from './components.js/Header'
 import { APP_NAME, DARK, DARKMODE, SLOGAN } from './config/constants'
 import { useStore } from './store'
@@ -7,7 +7,7 @@ import ScrollToTop from './components.js/ScrollToTop'
 const App = () => {
 
   const [state, dispatch] = useStore()
-  const { localDarkmode, page_loading, result_nation } = state
+  const { localDarkmode, full_slider, result_nation } = state
 
   const nation = result_nation
 
@@ -33,4 +33,4 @@ const App = () => {
   )
 }
 
-export default App
+export default memo(App)

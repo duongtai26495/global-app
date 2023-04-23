@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import DarkModeSwitch from './DarkModeSwitch'
 import SearchBar from './SearchBar'
 import { useStore } from '../store'
@@ -16,4 +16,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

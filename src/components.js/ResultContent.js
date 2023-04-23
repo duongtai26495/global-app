@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { useStore } from '../store'
 import { DARK, LIGHT } from '../config/constants'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -205,4 +205,4 @@ const ResultContent = () => {
     )
 }
 
-export default ResultContent
+export default memo(ResultContent)
