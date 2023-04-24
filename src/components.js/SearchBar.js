@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useStore } from '../store'
-import { CODE_PLACCEHOLDER, DARK, ISFULLTEXT, LIGHT, NAME_PLACEHOLDER, PAGE, RESULT_NATION, SEARCHBY } from '../config/constants'
+import { CAPITAL_PLACEHOLDER, CODE_PLACCEHOLDER, DARK, ISFULLTEXT, LIGHT, NAME_PLACEHOLDER, PAGE, RESULT_NATION, SEARCHBY } from '../config/constants'
 import { getDataNation } from '../config/api'
 import { updateLoading, updateResult } from '../store/actions'
 import DarkModeSwitch from './DarkModeSwitch'
@@ -89,6 +89,17 @@ const SearchBar = () => {
             </>
         )
     }
+
+    const ReturnPlaceHolder = (type) => {
+        switch(type){
+            case "name": 
+                return NAME_PLACEHOLDER
+            case "code":
+                return CODE_PLACCEHOLDER
+            case "capital":
+                return CAPITAL_PLACEHOLDER
+        }
+    }
     return (
         <div className={`bg-transparent w-full flex flex-col gap-2`}>
             <div className='w-full flex flex-row items-center relative gap-2'>
@@ -100,7 +111,7 @@ const SearchBar = () => {
                     onKeyDown={handleEnterPress}
                     onChange={(e) => { handleOnChange(e.target.value) }}
                     className={`w-full flex-1 bg-transparent h-10 px-2 ${localDarkmode == DARK ? "text-white dark-input-effect" : "text-black light-input-effect"}`}
-                    placeholder={type === "name" ? NAME_PLACEHOLDER : CODE_PLACCEHOLDER} />
+                    placeholder={ReturnPlaceHolder(type)} />
                 
                 <p onClick={() => handleClear()} className={`absolute border rounded-full p-1 right-2 ${localDarkmode == LIGHT ? "text-black" : "text-white"} ${keyword !== "" ? "block" : "hidden"}`}>
                     <svg fill={fill_value} className={`w-3 h-3 `} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460.775 460.775" ><path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z" /></svg>
