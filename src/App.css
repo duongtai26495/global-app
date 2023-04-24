@@ -86,3 +86,7 @@
     border-radius: 5px;
     border: rgb(59, 59, 59) solid 1px;
 }
+
+.add-on-searchbar{
+    transition: ease-in-out;
+}
