@@ -19,7 +19,7 @@ const Loading = ({ gif }) => {
                         : "Please wait..."
                 }
             </p>
-            <img className='m-auto w-2/3 lg:w-1/2 my-5' src={result_nation === null ? Gif404 : gif} />
+            <img alt="Loading Image" className='m-auto w-2/3 lg:w-1/2 my-5' src={result_nation === null ? Gif404 : gif} />
         </div>
     )
 }

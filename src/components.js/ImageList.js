@@ -1,13 +1,13 @@
 import React, { useEffect, useState, memo } from 'react'
 import ImageRow from './ImageRow'
 import { getImages } from '../config/api'
-import { useStore, actions } from '../store'
-import { DARK, IMAGES, LIGHT, PAGE, SLIDEPOS } from '../config/constants'
+import { useStore } from '../store'
+import { DARK, IMAGES, LIGHT, PAGE } from '../config/constants'
 
 const ImageList = ({ name }) => {
     const [images, setImages] = useState([])
 
-    const [state, dispatch] = useStore()
+    const [state] = useStore()
     const { localDarkmode, result_nation } = state
     const [currentPage, setCurrentPage] = useState(localStorage.getItem(PAGE) ?? 1)
     const fill_color = localDarkmode === LIGHT ? "#202020" : "#e5e5e5"
@@ -38,10 +38,10 @@ const ImageList = ({ name }) => {
         )
     }
 
-    const handleFullShow = (index) => {
-        dispatch(actions.setFullSlider(index))
-        localStorage.setItem(SLIDEPOS, index)
-    }
+    // const handleFullShow = (index) => {
+    //     dispatch(actions.setFullSlider(index))
+    //     localStorage.setItem(SLIDEPOS, index)
+    // }
 
     const handleNext = () => {
         if (currentPage > 0 && images?.length > 0) {

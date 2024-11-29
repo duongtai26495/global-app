@@ -23,7 +23,7 @@ const DarkModeSwitch = () => {
 
     return (
         <div className='w-fit rounded'>
-            <img onClick={() => switchDarkMode()} src={localDarkmode === DARK ? light : night} className={`w-12 h-10 object-contain ${localDarkmode === LIGHT ? "light-box-effect" : "dark-box-effect"}`} />
+            <img alt="Dark mode switch" onClick={() => switchDarkMode()} src={localDarkmode === DARK ? light : night} className={`w-12 h-10 object-contain ${localDarkmode === LIGHT ? "light-box-effect" : "dark-box-effect"}`} />
         </div>
     )
 }
