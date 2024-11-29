@@ -6,10 +6,11 @@ const getDataNation = async (keyword, type, fullText) => {
   let url = HOST_COUNTRIES;
   
   switch(type){
-    
+
     case "code": url = HOST_COUNTRIES + "alpha/" + keyword
     break
     case "capital" : url = HOST_COUNTRIES + type +"/"+keyword
+    break
     default: url = HOST_COUNTRIES + type +"/"+ keyword + "?fullText="+ (fullText === true ? "true" : "false")
     break
   }

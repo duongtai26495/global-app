@@ -88,7 +88,7 @@ const ResultContent = () => {
                 )
             }
 
-            if (sub.length = 1) {
+            if (sub.length === 1) {
                 return (
 
                     Object.keys(sub).map((key, index) =>
