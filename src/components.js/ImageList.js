@@ -66,11 +66,11 @@ const ImageList = ({ name }) => {
     useEffect(() => {
         localStorage.setItem(PAGE, 1)
         setCurrentPage(1)
-    }, [result_nation])
+    }, result_nation)
 
     useEffect(() => {
         getImageFromApi(name, currentPage)
-    }, [currentPage])
+    }, currentPage)
 
     return (
         <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode === DARK ? "out-box-effect" : "in-box-effect "}`}>
