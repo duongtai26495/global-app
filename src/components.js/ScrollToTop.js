@@ -4,7 +4,7 @@ import { LIGHT } from '../config/constants'
 
 const ScrollToTop = () => {
 
-    const [state, dispatch] = useStore()
+    const [state] = useStore()
     const { localDarkmode } = state
 
     const scrollToTop = () => {
@@ -32,7 +32,7 @@ const ScrollToTop = () => {
 
     const fillColor = localDarkmode !== LIGHT ? "#ffffff" : "#1e1e1e"
     return (
-        <button onClick={() => { scrollToTop() }} className={`w-12 h-12 sticky scroll-to-top z-50 transition-all ${scrolled ? "block" : "hidden"}  bg-opacity-50 ${localDarkmode == LIGHT ? "bg-slate-200" : "bg-zinc-900"} rounded-full`}>
+        <button onClick={() => { scrollToTop() }} className={`w-12 h-12 sticky scroll-to-top z-50 transition-all ${scrolled ? "block" : "hidden"}  bg-opacity-50 ${localDarkmode === LIGHT ? "bg-slate-200" : "bg-zinc-900"} rounded-full`}>
             <svg fill={fillColor} version="1.1" id="icons_1_" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
                 viewBox="0 0 128 128" >
                 <g id="row2_1_">

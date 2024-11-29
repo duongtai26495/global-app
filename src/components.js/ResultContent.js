@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react'
+import React, { memo } from 'react'
 import { useStore } from '../store'
 import { DARK, LIGHT } from '../config/constants'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -6,11 +6,10 @@ import Loading from './Loading';
 import WelcomeGif from '../assets/images/welcome.gif'
 import SearchingGif from '../assets/images/searching.gif'
 import Map from './Map';
-import { getImages } from '../config/api';
 import ImageList from './ImageList';
 const ResultContent = () => {
 
-    const [state, dispatch] = useStore()
+    const [state] = useStore()
     const { localDarkmode, result_nation, page_loading } = state
 
     const RenderResult = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ImageView = ({list, position}) => {
+const ImageView = () => {
   return (
     <div>ImageView</div>
   )

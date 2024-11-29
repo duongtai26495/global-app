@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import night from '../assets/images/night-mode.png'
 import light from '../assets/images/light-mode.png'
 import { useStore } from '../store'
@@ -11,7 +11,7 @@ const DarkModeSwitch = () => {
     const { localDarkmode } = state
 
     const switchDarkMode = () => {
-      if(localDarkmode == LIGHT){
+      if(localDarkmode === LIGHT){
         dispatch(changeDarkMode(DARK))
         localStorage.setItem(DARKMODE, DARK)
       }
@@ -23,7 +23,7 @@ const DarkModeSwitch = () => {
 
     return (
         <div className='w-fit rounded'>
-            <img onClick={() => switchDarkMode()} src={localDarkmode == DARK ? light : night} className={`w-12 h-10 object-contain ${localDarkmode === LIGHT ? "light-box-effect" : "dark-box-effect"}`} />
+            <img onClick={() => switchDarkMode()} src={localDarkmode === DARK ? light : night} className={`w-12 h-10 object-contain ${localDarkmode === LIGHT ? "light-box-effect" : "dark-box-effect"}`} />
         </div>
     )
 }

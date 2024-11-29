@@ -3,15 +3,14 @@ import ImageRow from './ImageRow'
 import { getImages } from '../config/api'
 import { useStore, actions } from '../store'
 import { DARK, IMAGES, LIGHT, PAGE, SLIDEPOS } from '../config/constants'
-import { setFullSlider } from '../store/actions'
 
 const ImageList = ({ name }) => {
     const [images, setImages] = useState([])
 
     const [state, dispatch] = useStore()
-    const { localDarkmode, result_nation, page_loading } = state
+    const { localDarkmode, result_nation } = state
     const [currentPage, setCurrentPage] = useState(localStorage.getItem(PAGE) ?? 1)
-    const fill_color = localDarkmode == LIGHT ? "#202020" : "#e5e5e5"
+    const fill_color = localDarkmode === LIGHT ? "#202020" : "#e5e5e5"
 
     const getImageFromApi = async (name, page) => {
         let result = await getImages(name, page)
@@ -74,8 +73,8 @@ const ImageList = ({ name }) => {
     }, [currentPage])
 
     return (
-        <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode == DARK ? "out-box-effect" : "in-box-effect "}`}>
-            <p className={`font-bold mb-1 ${localDarkmode == LIGHT ? "text-zinc-900" : "text-zinc-100"}`}>Some images from this country:</p>
+        <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode === DARK ? "out-box-effect" : "in-box-effect "}`}>
+            <p className={`font-bold mb-1 ${localDarkmode === LIGHT ? "text-zinc-900" : "text-zinc-100"}`}>Some images from this country:</p>
             <div className='columns-2 w-full gap-2 p-1'>
                 {
                     images?.length > 0
@@ -86,7 +85,7 @@ const ImageList = ({ name }) => {
                             </a>
                         ))
                         :
-                        <p className={`font-bold m-auto my-10 text-xl ${localDarkmode == LIGHT ? "text-zinc-900" : "text-zinc-100"}`}>No image to show!</p>
+                        <p className={`font-bold m-auto my-10 text-xl ${localDarkmode === LIGHT ? "text-zinc-900" : "text-zinc-100"}`}>No image to show!</p>
 
                 }
             </div>

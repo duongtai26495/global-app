@@ -5,8 +5,8 @@ import { DARK, GOOGLE_API } from '../config/constants';
 
 const Map = ({ lat,lng }) => {
     
-    const [state, dispatch] = useStore()
-    const { localDarkmode, result_nation, page_loading } = state
+    const [state] = useStore()
+    const { localDarkmode } = state
 
     const defaultProps = {
         center: {
@@ -17,8 +17,8 @@ const Map = ({ lat,lng }) => {
       };
 
     return (
-        <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode == DARK ? "out-box-effect" : "in-box-effect " }`}>
-            <p className={`w-full text-md font-bold mb-2 ${localDarkmode == DARK ? "text-neutral-100" : "text-neutral-900 " }`}>Position on map:</p>
+        <div className={`w-full h-fit rounded overflow-hidden px-2 pb-2 ${localDarkmode === DARK ? "out-box-effect" : "in-box-effect " }`}>
+            <p className={`w-full text-md font-bold mb-2 ${localDarkmode === DARK ? "text-neutral-100" : "text-neutral-900 " }`}>Position on map:</p>
             <div style={{ height: '500px', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: GOOGLE_API }}
